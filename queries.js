@@ -29,7 +29,7 @@ const insertaMgee = (req, res) => {
 
     pool.query(
         "INSERT INTO public.mgee(cvegeo, cve_ent, nomgeo, nom_abrev, pob_total, pob_femenina, pob_masculina, total_viviendas_habitadas) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;",
-      [cvegeo, cve_ent, nomgeo,nom_abrev, pob_total,pob_femenina,pob_masculina,total_viviendas_habitadas],
+      [cvegeo,  cve_ent, nomgeo,nom_abrev, pob_total,pob_femenina,pob_masculina,total_viviendas_habitadas],
       (error, results) => {
         if (error) {
           throw error;
