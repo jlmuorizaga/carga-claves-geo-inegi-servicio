@@ -43,6 +43,32 @@ const insertaMgee = (req, res) => {
     );
   };
 
+  const insertaMgem = (req, res) => {
+    const { cvegeo, cve_ent, cve_mun, nomgeo, cve_cab, pob_total, pob_femenina,pob_masculina,total_viviendas_habitadas} = req.body;
+    console.log('cve_geo=',cvegeo);console.log('cve_ent=',cve_ent),console.log('cve_mun=',cve_mun),
+    console.log('nomgeo=',nomgeo), console.log('cve_cab=',cve_cab),console.log('pob_total=',pob_total),
+    console.log('pob_femenina=',pob_femenina), console.log('pob_masculina=',pob_masculina),
+    console.log('total_viviendas_habitadas=',total_viviendas_habitadas)
+    pool.query(
+        "INSERT INTO public.mgem(cvegeo, cve_ent, cve_mun, nomgeo, cve_cab, pob_total, pob_femenina, "
+        +"pob_masculina, total_viviendas_habitadas) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;",
+      [cvegeo,  cve_ent, cve_mun, nomgeo,cve_cab, pob_total,pob_femenina,pob_masculina,total_viviendas_habitadas],
+      (error, results) => {
+        if (error) {
+          throw error;
+        }clearImmediate
+        textoRespuesta =
+          '{"respuesta": "Se insertó nuevo registro en mgem' +
+          results.rows[0].cvegeo +
+          '"}';
+        res.status(201).json(JSON.parse(textoRespuesta));
+      }
+    );
+  };
+
+
+
   module.exports = {
     insertaMgee,
+    insertaMgem,
   };
