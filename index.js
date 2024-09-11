@@ -22,7 +22,8 @@ app.get('/', (request, response) => {
 })
 
 app.post('/inserta-mgee', db.insertaMgee);
-app.post('/inserta-mgem', db.insertaMgem)
+app.post('/inserta-mgem', db.insertaMgem);
+app.post('/inserta-localidad', db.insertaLocalidad)
 
 app.listen(port, () => {
     console.log('API Insertar Claves-Geo-Inegi Servicio en puerto: ', port);
