@@ -75,7 +75,7 @@ const insertaLocalidad = (req, res) => {
       console.log('altitud=',altitud); console.log('pob_total=',pob_total);console.log('total_viviendas_habitadas=',total_viviendas_habitadas);
       console.log('cve_carta=',cve_carta); console.log('estatus=',estatus); console.log('periodo=',periodo);
   */  pool.query(
-      "INSERT INTO public.localidades(cvegeo, cve_ent, cve_mun, cve_loc, nomgeo, ambito, latitud, longitud, altitud, "
+      "INSERT INTO public.localidades3(cvegeo, cve_ent, cve_mun, cve_loc, nomgeo, ambito, latitud, longitud, altitud, "
       + "pob_total, total_viviendas_habitadas, cve_carta, estatus, periodo)	"
       + "VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING *;",
       [cvegeo, cve_ent, cve_mun, cve_loc, nomgeo, ambito, latitud, longitud, altitud,
