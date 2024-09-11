@@ -21,11 +21,11 @@ const pool = new Pool({
 });
 
 const insertaMgee = (req, res) => {
-  /*   const { cvegeo, cve_ent, nomgeo,nom_abrev, pob_total,pob_femenina,pob_masculina,total_viviendas_habitadas} = req.body;
+     const { cvegeo, cve_ent, nomgeo,nom_abrev, pob_total,pob_femenina,pob_masculina,total_viviendas_habitadas} = req.body;
      console.log('cve_geo=',cvegeo);console.log('cve_ent=',cve_ent),console.log('nomgeo=',nomgeo)
      console.log('nom_abrev=',nom_abrev),console.log('pob_total=',pob_total),console.log('pob_femenina=',pob_femenina)
      console.log('pob_masculina=',pob_masculina),console.log('total_viviendas_habitadas=',total_viviendas_habitadas)
- */
+ 
   pool.query(
     "INSERT INTO public.mgee(cvegeo, cve_ent, nomgeo, nom_abrev, pob_total, pob_femenina, pob_masculina, total_viviendas_habitadas) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *;",
     [cvegeo, cve_ent, nomgeo, nom_abrev, pob_total, pob_femenina, pob_masculina, total_viviendas_habitadas],
